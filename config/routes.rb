@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   resources :users, only: [:index, :show, :create, :update, :destroy] do
     resources :posts, only: [:index, :show, :create, :update, :destroy]
   end
-  resources :posts, only: [] do
+
+  resources :posts, only: [:index, :show] do
     resources :links, only: [:index, :show, :create, :update, :destroy]
   end
 
