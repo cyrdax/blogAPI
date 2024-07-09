@@ -48,3 +48,5 @@ end
 gem 'rack-cors'
 gem 'devise'
 gem 'active_storage_validations'
+gem 'active_model_serializers'
+
